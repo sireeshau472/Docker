@@ -1,1 +1,96 @@
 
+To check docker version
+
+>>  docker --version
+
+To login to docker hub/ private registries
+
+>> docker login
+username: Enter your username 
+password: Enter your password
+
+To search docker image
+
+>> docker search [imagename]
+
+>> docker search nginx
+
+To pull image
+
+>> docker pull [imagename]
+
+ex >> docker pull nginx
+
+
+To see information about image, volume, network 
+
+>> docker inspect image [imagename]
+
+ex >> docker inspect image nginx
+
+To see docker images
+
+>> docker images [or]
+
+>> docker image ls
+
+To create container from image
+
+>>docker create [imagename]
+
+ex >> docker create nginx
+
+To remove docker image
+
+>> docker rmi [imagename]
+ex >> docker rmi nginx
+
+To creat an image with custom name
+
+>> docker create --name [container name] [image name}
+
+ex: docker create --name nginx-example nginx
+
+To see running containers 
+
+>> docker ps
+
+To see all conatiners running/stopped
+
+>> docker ps -a
+
+To start docker conatiners
+
+>> docker start [container id/container name]
+
+ex>> docker start 3f4grg
+
+ex >> docker start nginx
+
+To stop docker conatiners (gracefully stopping)
+
+>> docker stop [container id/container name]
+
+To remove docker conatiners
+
+>> docker rm containerId/name
+
+To create and run container [attached mode]
+
+when you run this it create and run also login to container as well. In this case to come out of conatainer we need to press ctrl_q/crtl+d/ctrl+z, still there may be chance you can't come out of the containers. so need to open new terminal and stop the conatiners.
+
+>> docker run --name nginx-example nginx
+
+To run conatainer in dettached mode using run command
+
+>> docker run  -d --name nginx-example nginx
+
+To kill unresponsive or hanged conatiners(forcefully stopping the conatiner)
+
+>> docker kill containerId/name
+
+To log into the conatainer
+
+>> docker exec -it containerId/name /bin/bash
+
+
