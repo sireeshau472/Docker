@@ -1,1 +1,38 @@
+docker network types:
+
+Bridge ( default network)
+Host
+None
+
+To see docker network
+
+>> docker network ls
+
+To access the containers using port/network
+
+Bridge network:
+++++++++++++
+
+>> docker run -d nginx-container -p 8080:80 nginx --> access using docker hostip and hostport 
+
+ex: 190.18.2.1:8080 (from your browser)
+
+host network:
++++++++++++
+
+We can't run multiple containers on the same network. And we can directly access the container using dockerhost ip from the browser no need to specify any port for the same.
+
+>> docker run -d --name nginx-container  --net host nginx 
+
+None network:
+++++++++++++
+
+If we use this network we can't access the container using docker host or internally. we can't able to access from anywhere else.
+>> docker run -d --name nginx-container  --net none nginx
+
+
+To see network information
+>> docker network inspect [networkname]
+
+ex >> docker network inspect bridge
 
