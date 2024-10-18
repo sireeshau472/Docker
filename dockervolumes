@@ -1,1 +1,39 @@
+To see docker volumes
 
+default location for docker volumes
+
+/var/lib/docker/volumes
+
+>> docker volumes ls
+
+To create docker volumes
+
+>> >> docker volume create [valume-name]
+
+ex: >> docker volume create testvol
+
+To see volume inspects
+
+>> docker volume inspect testvol
+
+
+Mounting a volume using -v or --mount 
+
+>> docker run -it --name=test01container --mount source=testvol, destination=/data
+
+>> docker run -it --name=test02container -v testvol:/data 
+
+Sharing volume between the containers
+>> docker run -it --volumes-from test01container --name=test02container centos /bin/bash
+
+Mounting a Host Directory as a data volume
+
+>> mkdir files
+>>  cd files
+>> touch file.txt
+
+>> docker run -it -name test03container -v "$(pwd)":/data1
+
+To remove docker volume
+
+docker volume rm volumename
