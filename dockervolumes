@@ -19,9 +19,14 @@ To see volume inspects
 
 Mounting a volume using -v or --mount 
 
->> docker run -it --name=test01container --mount source=testvol, destination=/data
 
->> docker run -it --name=test02container -v testvol:/data 
+>> docker run -it --name=[conainername] --mount source=[source-valume-name], destination=[destination-volume] centos
+
+ex:
+
+>> docker run -it --name=test01container --mount source=testvol, destination=/data centos
+
+>> docker run -it --name=test02container -v testvol:/data centos 
 
 Sharing volume between the containers
 >> docker run -it --volumes-from test01container --name=test02container centos /bin/bash
@@ -32,7 +37,7 @@ Mounting a Host Directory as a data volume
 >>  cd files
 >> touch file.txt
 
->> docker run -it -name test03container -v "$(pwd)":/data1
+>> docker run -it -name test03container -v "$(pwd)":/data1 centos
 
 To remove docker volume
 
